@@ -1,0 +1,66 @@
+.example-card {
+  margin-top: 5%;
+  -webkit-box-shadow: 0px 2px 14px -5px rgba(0, 0, 0, 0.67);
+  -moz-box-shadow: 0px 2px 14px -5px rgba(0, 0, 0, 0.67);
+  box-shadow: 0px 2px 14px -5px rgba(0, 0, 0, 0.67);
+}
+.head {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+.example-full-width {
+  width: 100%;
+  margin-top: .435em;
+}
+.table td,
+.table th {
+  padding: 0.6rem;
+  vertical-align: middle;
+  height: 57px;
+  display: flex;
+  align-items: center;
+}
+.table td.col-3 {
+  justify-content: center;
+}
+.table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+.table tr:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+
+.table tr:hover {
+  background-color: #dfdfdf;
+}
+.btn {
+  margin-left: 10px;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+.dropdown-item:hover {
+  color: #ffffff;
+  cursor: pointer;
+}
+.edit:hover {
+  background-color: #fdc92d;
+}
+.del:hover {
+  background-color: #fe6254;
+}
+
+button {
+  outline: none;
+}
+.toggle {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+.search {
+  width: 30%;
+  margin-right: 15px;
+  padding-top: 2px;
+}
+

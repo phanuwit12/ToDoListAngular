@@ -1,0 +1,126 @@
+<div class="container">
+  <mat-card class="example-card">
+    <div class="row head">
+      <div class="col-9">
+        <input
+          class="form-control form-control-sm ml-3 w-100"
+          [formControl]="detail"
+          type="text"
+          placeholder="add to do"
+          aria-label="Search"
+          mdbInput
+        />
+      </div>
+      <div class="col-3">
+        <button
+          type="button"
+          class="btn btn-primary"
+          aria-haspopup="true"
+          aria-expanded="false"
+          (click)="addValue()"
+        >
+          เพิ่ม
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger"
+          aria-haspopup="true"
+          aria-expanded="false"
+          (click)="clearValue()"
+        >
+          ล้างรายการ
+        </button>
+      </div>
+    </div>
+    <mat-card-content>
+      <div class="container">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr class="row">
+              <th scope="col" class="col-1">
+                เสร็จสิ้น
+              </th>
+              <th scope="col" class="col-4">
+                <span>รายละเอียด</span>
+              </th>
+              <th scope="col" class="col-2">เริ่มต้น</th>
+              <th scope="col" class="col-2">สิ้นสุด</th>
+              <th scope="col" class="col-3"></th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let item of data" class="row">
+              <td class="col-1">
+                <mat-checkbox [(ngModel)]="item.success" (change)="successTodo($event,item)" > </mat-checkbox>
+              </td>
+              <td class="col-4">
+                <span *ngIf="!item.edit">{{item.detail}}</span>
+                <mat-form-field *ngIf="item.edit" class="example-full-width">
+                  <input matInput [(ngModel)]="item.detail" #editvalue value={{item.detail}}>
+                </mat-form-field>
+              </td>
+              <td class="col-2">
+                <span>{{item.createAt}}</span>
+              </td>
+              <td class="col-2">
+                <span>{{item.successAt}}</span>
+              </td>
+              <td class="col-3">
+                <div class="btn-group">
+                  <button
+                    *ngIf="!item.edit"
+                    type="button"
+                    class="btn btn-primary dropdown-toggle"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    จัดการ
+                  </button>
+                  <div class="dropdown-menu">
+                    <button
+                      class="dropdown-item edit"
+                      data-toggle="modal"
+                      data-target="#ModalEdit"
+                      (click)="setEdit(item)"
+                    >
+                      แก้ไข
+                    </button>
+                    <button class="dropdown-item del" (click)="deleteValue(item)">ลบ</button>
+                  </div>
+                </div>
+                <button
+                    *ngIf="item.edit"
+                    type="button"
+                    class="btn btn-success"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    (click)="setEdit(item)"
+                  >
+                    บันทึก
+                  </button>
+                  <button
+                    *ngIf="item.edit"
+                    type="button"
+                    class="btn btn-warning"
+                    data-toggle="dropdown"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    (click)="cancleEdit(item)"
+                  >
+                    ยกเลิก
+                  </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </mat-card-content>
+    <!-- <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions> -->
+  </mat-card>
+</div>
